@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useAuth } from "@/context/AuthContext";
 import {
   LogoIcon,
   MenuIcon,
@@ -27,6 +28,7 @@ const navItems: NavItem[] = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { rider, openAuthModal, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -101,28 +103,56 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop Action Buttons */}
+          {/* Desktop Action Buttons / Auth State */}
           <div className="hidden sm:flex items-center gap-3">
-            <Link
-              href="#book"
-              className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors"
-            >
-              Log in
-            </Link>
-            <Link
-              href="#book"
-              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-md shadow-blue-600/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-            >
-              <CarIcon size={16} className="transition-transform group-hover:-translate-y-0.5" />
-              <span>Book a Ride</span>
-            </Link>
+            {rider ? (
+              <div className="flex items-center gap-3 bg-slate-50 border border-slate-200 py-1.5 px-3 rounded-2xl shadow-sm">
+                <div className="w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-xs flex items-center justify-center shrink-0">
+                  {rider.name ? rider.name.charAt(0).toUpperCase() : "R"}
+                </div>
+                <div className="flex flex-col text-left">
+                  <span className="text-xs font-bold text-[#0F172A] max-w-[120px] truncate">
+                    {rider.name}
+                  </span>
+                  <span className="text-[10px] text-slate-500 max-w-[120px] truncate">
+                    {rider.phone}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={logout}
+                  className="ml-2 text-xs font-bold text-slate-500 hover:text-red-600 transition-colors cursor-pointer"
+                  title="Sign out"
+                >
+                  Log out
+                </button>
+              </div>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  onClick={() => openAuthModal("login")}
+                  className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors cursor-pointer"
+                >
+                  Log in
+                </button>
+                <button
+                  type="button"
+                  onClick={() => openAuthModal("register")}
+                  className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-md shadow-blue-600/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+                >
+                  <CarIcon size={16} className="transition-transform group-hover:-translate-y-0.5" />
+                  <span>Book a Ride</span>
+                </button>
+              </>
+            )}
           </div>
 
           {/* Mobile Hamburger Button */}
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors"
+            className="lg:hidden p-2.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-colors cursor-pointer"
             aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMobileMenuOpen}
           >
@@ -145,10 +175,15 @@ export default function Navbar() {
           onClick={(e) => e.stopPropagation()}
         >
           <div className="space-y-6">
-            <div className="pb-4 border-b border-slate-100">
+            <div className="pb-4 border-b border-slate-100 flex items-center justify-between">
               <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
                 Menu
               </span>
+              {rider && (
+                <span className="text-[11px] font-bold text-slate-700">
+                  Hi, {rider.name.split(" ")[0]}
+                </span>
+              )}
             </div>
             <nav className="flex flex-col space-y-2">
               {navItems.map((item) => (
@@ -169,21 +204,54 @@ export default function Navbar() {
           </div>
 
           <div className="pt-6 border-t border-slate-200 space-y-3">
-            <Link
-              href="#book"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center py-3 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold transition-colors"
-            >
-              Log in
-            </Link>
-            <Link
-              href="#book"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg shadow-blue-600/20 transition-transform active:scale-[0.98]"
-            >
-              <CarIcon size={18} />
-              <span>Book a Ride</span>
-            </Link>
+            {rider ? (
+              <div className="space-y-3">
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center">
+                    {rider.name ? rider.name.charAt(0).toUpperCase() : "R"}
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-sm font-bold text-[#0F172A] truncate">{rider.name}</p>
+                    <p className="text-xs text-slate-500 truncate">{rider.email}</p>
+                    <p className="text-xs text-blue-600 font-medium">{rider.phone}</p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    logout();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full py-3 rounded-xl border border-red-200 text-red-600 hover:bg-red-50 font-semibold transition-colors cursor-pointer text-sm"
+                >
+                  Log out
+                </button>
+              </div>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    openAuthModal("login");
+                  }}
+                  className="w-full flex items-center justify-center py-3 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold transition-colors cursor-pointer"
+                >
+                  Log in
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    openAuthModal("register");
+                  }}
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg shadow-blue-600/20 transition-transform active:scale-[0.98] cursor-pointer"
+                >
+                  <CarIcon size={18} />
+                  <span>Register as Rider</span>
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>
