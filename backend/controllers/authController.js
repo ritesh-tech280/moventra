@@ -14,7 +14,7 @@ const generateToken = (riderId, email) => {
 
 /**
  * @desc    Register a new Rider and store in MongoDB with hashed password
- * @route   POST /api/auth/register
+ * @route   POST /api/auth/register 
  * @access  Public
  */
 const register = async (req, res) => {

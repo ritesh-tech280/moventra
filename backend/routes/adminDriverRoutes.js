@@ -1,0 +1,14 @@
+const router = require("express").Router(); const c = require("../controllers/driverController"); const { protectDriver, requireAdmin } = require("../middlewares/driverAuthMiddleware");
+router.use(protectDriver, requireAdmin);
+const decision = (value, handler) => (req, _res, next) => { req.params.decision = value; return handler(req, _res, next); };
+router.get("/drivers/pending", c.pending);
+router.get("/drivers/:driverId", c.adminDetail);
+router.patch("/drivers/:driverId/documents/:documentId/approve", decision("approve", c.reviewDocument));
+router.patch("/drivers/:driverId/documents/:documentId/reject", decision("reject", c.reviewDocument));
+router.patch("/drivers/:driverId/vehicles/:vehicleId/approve", decision("approve", c.reviewVehicle));
+router.patch("/drivers/:driverId/vehicles/:vehicleId/reject", decision("reject", c.reviewVehicle));
+router.patch("/drivers/:driverId/phone/verify", c.verifyPhone);
+router.patch("/drivers/:driverId/approve", decision("approve", c.finalDecision));
+router.patch("/drivers/:driverId/reject", decision("reject", c.finalDecision));
+router.patch("/drivers/:driverId/suspend", c.suspend);
+module.exports = router;
