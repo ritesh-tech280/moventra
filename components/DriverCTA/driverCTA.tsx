@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import Link from "next/link";
 import {
   CarIcon,
   TrendingUpIcon,
@@ -12,15 +13,6 @@ import {
 } from "@/icons/page";
 
 export default function DriverCTA() {
-  const [driverEmail, setDriverEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!driverEmail.trim()) return;
-    setSubmitted(true);
-  };
-
   return (
     <section id="drive" className="py-20 lg:py-28 bg-[#0A192F] text-white relative overflow-hidden">
       {/* Radiant Glows */}
@@ -78,35 +70,10 @@ export default function DriverCTA() {
               </div>
 
               {/* Instant Application Form */}
-              {submitted ? (
-                <div className="p-4 rounded-2xl bg-[#0F2344] border border-blue-400 text-slate-200 flex items-center gap-3">
-                  <div className="p-2 rounded-full bg-blue-600 text-white">
-                    <CheckIcon size={18} />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-white">Application link dispatched!</h4>
-                    <p className="text-xs text-slate-300">Check your inbox for step-by-step onboarding instructions.</p>
-                  </div>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg">
-                  <input
-                    type="email"
-                    value={driverEmail}
-                    onChange={(e) => setDriverEmail(e.target.value)}
-                    placeholder="Enter your email to apply..."
-                    className="flex-1 px-4 py-3.5 rounded-xl bg-[#07101E] border border-slate-700 text-white placeholder:text-slate-400 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer shrink-0"
-                  >
+              <Link href="/drive/register" className="inline-flex px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all items-center justify-center gap-2 cursor-pointer">
                     <span>Become a Driver</span>
                     <ArrowRightIcon size={16} />
-                  </button>
-                </form>
-              )}
+              </Link>
             </div>
 
             {/* Right Column: Driver Earnings Preview Illustration */}
