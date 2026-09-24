@@ -51,6 +51,11 @@ const driverSchema = new mongoose.Schema(
       enum: ["pending", "active", "rejected", "suspended"],
       default: "pending",
     },
+    availability: {
+      type: String,
+      enum: ["online", "offline"],
+      default: "offline",
+    },
     role: { type: String, enum: ["driver", "admin"], default: "driver" },
     verification: { type: verificationSchema, default: () => ({}) },
   },
