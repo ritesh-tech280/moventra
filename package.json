@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "server": "node backend/server.js",
+    "admin:create": "node backend/scripts/createAdmin.js",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
