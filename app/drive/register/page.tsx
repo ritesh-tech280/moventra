@@ -75,6 +75,7 @@ export default function DriverRegistrationPage() {
       const data = await response.json();
       if (!response.ok)
         throw new Error(data.message || "Unable to complete registration.");
+      if (data.token) window.localStorage.setItem("moventra_driver_token", data.token);
       setComplete(true);
       setMessage(
         "Your registration is complete. Our team will review your details and follow up about document verification.",
@@ -167,6 +168,7 @@ export default function DriverRegistrationPage() {
                 Thanks for registering
               </h2>
               <p className="mx-auto mt-3 max-w-lg text-slate-600">{message}</p>
+              <a href="/driver/dashboard" className="mt-6 inline-flex items-center justify-center rounded-xl bg-emerald-900 px-5 py-3 text-sm font-bold text-white transition hover:bg-emerald-800">Open driver dashboard</a>
             </div>
           ) : (
             <>
