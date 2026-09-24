@@ -7,7 +7,7 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const driverRoutes = require("./routes/driverRoutes");
-const adminDriverRoutes = require("./routes/adminDriverRoutes");
+const adminRoutes = require("./modules/admin/admin.routes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -34,7 +34,7 @@ app.use((req, res, next) => {
 // API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/drivers", driverRoutes);
-app.use("/api/admin", adminDriverRoutes);
+app.use("/api/admin", adminRoutes);
 
 // Health Check endpoint
 app.get("/api/health", (req, res) => {

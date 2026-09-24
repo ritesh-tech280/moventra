@@ -50,6 +50,7 @@ const riderSchema = new mongoose.Schema(
       type: String,
       default: "rider",
     },
+    status: { type: String, enum: ["active", "inactive", "suspended"], default: "active" },
     isPhoneVerified: {
       type: Boolean,
       default: false,
@@ -94,4 +95,3 @@ riderSchema.methods.toJSON = function () {
 const Rider = mongoose.models.Rider || mongoose.model("Rider", riderSchema);
 
 module.exports = Rider;
-
