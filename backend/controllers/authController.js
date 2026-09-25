@@ -257,6 +257,12 @@ const updateProfile = async (req, res) => {
 
     if (name) rider.name = name.trim();
     if (phone) {
+      if (rider.isPhoneVerified) {
+        return res.status(403).json({
+          success: false,
+          message: "Verified phone numbers cannot be changed directly.",
+        });
+      }
       const phoneTaken = await Rider.findOne({ phone: phone.trim(), _id: { $ne: rider._id } });
       if (phoneTaken) {
         return res.status(400).json({
