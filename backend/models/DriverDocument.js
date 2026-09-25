@@ -24,6 +24,9 @@ const documentSchema = new mongoose.Schema(
     documentNumber: { type: String, required: true, trim: true },
     storageKey: { type: String, required: true },
     originalFileName: { type: String, required: true },
+    publicId: { type: String, select: false },
+    assetId: { type: String, select: false },
+    secureUrl: { type: String, select: false },
     mimeType: {
       type: String,
       enum: ["application/pdf", "image/jpeg", "image/png", "image/webp"],
@@ -48,10 +51,7 @@ const documentSchema = new mongoose.Schema(
   },
   { timestamps: true },
 );
-documentSchema.index(
-  { driverId: 1, documentType: 1, documentNumber: 1 },
-  { unique: true },
-);
+documentSchema.index({ driverId: 1, documentType: 1 });
 module.exports =
   mongoose.models.DriverDocument ||
   mongoose.model("DriverDocument", documentSchema);

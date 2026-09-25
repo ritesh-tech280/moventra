@@ -31,4 +31,8 @@ const requireAdmin = (req, res, next) =>
     : res
         .status(403)
         .json({ success: false, message: "Administrator access is required." });
-module.exports = { protectDriver, requireAdmin };
+const requireDriver = (req, res, next) =>
+  req.driver?.role === "driver"
+    ? next()
+    : res.status(403).json({ success: false, message: "Driver access is required." });
+module.exports = { protectDriver, requireAdmin, requireDriver };

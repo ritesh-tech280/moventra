@@ -16,6 +16,18 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Private driver document storage
+
+Configure these variables in the backend environment (the repository `.env` is ignored by Git):
+
+```env
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+```
+
+The backend uploads verification files as authenticated Cloudinary assets under each driver's `documents` folder. The API secret must stay server-side. Drivers can upload JPG, PNG, and PDF files up to 8 MB at `/driver/verification`; admins review documents from `/admin/drivers/:driverId`.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
