@@ -25,6 +25,9 @@ export interface RiderProfile {
   photoURL?: string;
   role?: string;
   createdAt?: string;
+  status?: "active" | "inactive" | "suspended";
+  isPhoneVerified?: boolean;
+  isEmailVerified?: boolean;
 }
 
 interface RegisterData {
@@ -323,4 +326,3 @@ export function useAuth() {
   }
   return context;
 }
-

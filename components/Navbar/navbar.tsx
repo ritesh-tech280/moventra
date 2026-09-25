@@ -118,6 +118,7 @@ export default function Navbar() {
                     {rider.phone}
                   </span>
                 </div>
+                <Link href="/rider" className="ml-2 text-xs font-bold text-emerald-700 hover:text-emerald-900">My account</Link>
                 <button
                   type="button"
                   onClick={logout}
@@ -216,6 +217,7 @@ export default function Navbar() {
                     <p className="text-xs text-blue-600 font-medium">{rider.phone}</p>
                   </div>
                 </div>
+                <Link href="/rider" onClick={() => setIsMobileMenuOpen(false)} className="block w-full rounded-xl bg-emerald-700 py-3 text-center text-sm font-semibold text-white">Rider dashboard</Link>
                 <button
                   type="button"
                   onClick={() => {

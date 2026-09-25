@@ -59,6 +59,17 @@ const riderSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    addresses: [{
+      label: { type: String, enum: ["Home", "Work", "Other"], required: true },
+      address: { type: String, required: true, trim: true },
+      latitude: { type: Number, required: true, min: -90, max: 90 },
+      longitude: { type: Number, required: true, min: -180, max: 180 },
+      isDefault: { type: Boolean, default: false },
+    }],
+    notificationPreferences: {
+      rideUpdates: { type: Boolean, default: true },
+      paymentUpdates: { type: Boolean, default: true },
+    },
   },
   {
     timestamps: true,
