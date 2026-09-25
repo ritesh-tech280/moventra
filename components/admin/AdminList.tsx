@@ -111,7 +111,10 @@ const config: Record<
 function value(row: Row, path: string) {
   let v: any = row;
   for (const p of path.split(".")) v = v?.[p];
-  if (path === "vehicle") v = [row.brand, row.model].filter(Boolean).join(" ");
+  if (path === "vehicle") {
+    const vehicle = row.vehicle ?? row;
+    v = [vehicle.brand, vehicle.model].filter(Boolean).join(" ");
+  }
   if (["createdAt"].includes(path))
     return v ? new Date(v).toLocaleDateString() : "—";
   if (["finalFare"].includes(path))

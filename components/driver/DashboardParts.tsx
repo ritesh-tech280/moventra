@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import Link from "next/link";
 import {
   CalendarIcon,
   CarIcon,
@@ -147,7 +148,7 @@ export function VerificationCard({ driver, documents }: { driver: DriverProfile;
   ] as const;
   const status = driver.status === "suspended" ? "Suspended" : (driver.verification?.status || "incomplete").replaceAll("_", " ");
   const needsAttention = ["rejected", "incomplete"].includes(driver.verification?.status || "incomplete");
-  return <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"><div className="flex items-start justify-between"><div><p className="text-xs font-bold uppercase tracking-wider text-slate-500">Verification status</p><h2 className="mt-2 text-lg font-extrabold capitalize text-slate-950">{status}</h2></div><span className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-800"><ShieldCheckIcon size={22} /></span></div><ul className="mt-4 space-y-3">{checks.map(([label, done]) => <li key={label} className="flex items-center gap-2.5 text-sm"><span className={`flex h-5 w-5 items-center justify-center rounded-full ${done ? "bg-emerald-100 text-emerald-800" : "bg-slate-100 text-slate-400"}`}>{done ? <CheckIcon size={13} /> : <span className="h-1.5 w-1.5 rounded-full bg-current" />}</span><span className={done ? "text-slate-700" : "text-slate-500"}>{label}</span><span className="ml-auto text-xs font-medium text-slate-400">{done ? "Complete" : "Pending"}</span></li>)}</ul>{needsAttention && <div className="mt-4 rounded-xl bg-amber-50 p-3 text-sm text-amber-900">Your verification needs attention. Review your details or contact driver support.</div>}</section>;
+  return <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"><div className="flex items-start justify-between"><div><p className="text-xs font-bold uppercase tracking-wider text-slate-500">Verification status</p><h2 className="mt-2 text-lg font-extrabold capitalize text-slate-950">{status}</h2></div><span className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-800"><ShieldCheckIcon size={22} /></span></div><ul className="mt-4 space-y-3">{checks.map(([label, done]) => <li key={label} className="flex items-center gap-2.5 text-sm"><span className={`flex h-5 w-5 items-center justify-center rounded-full ${done ? "bg-emerald-100 text-emerald-800" : "bg-slate-100 text-slate-400"}`}>{done ? <CheckIcon size={13} /> : <span className="h-1.5 w-1.5 rounded-full bg-current" />}</span><span className={done ? "text-slate-700" : "text-slate-500"}>{label}</span><span className="ml-auto text-xs font-medium text-slate-400">{done ? "Complete" : "Pending"}</span></li>)}</ul>{needsAttention && <div className="mt-4 rounded-xl bg-amber-50 p-3 text-sm text-amber-900">Your verification needs attention. Review your details or contact driver support.</div>}<Link href="/driver/verification" className="mt-5 inline-flex rounded-lg bg-emerald-900 px-4 py-2.5 text-sm font-bold text-white hover:bg-emerald-800">Manage documents</Link></section>;
 }
 
 export function RecentRides() {
