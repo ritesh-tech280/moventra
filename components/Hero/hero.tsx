@@ -1,14 +1,11 @@
-"use client";
+﻿"use client";
 
-import React from "react";
+
 import Link from "next/link";
 import FareEstimator from "@/components/FareEstimator/fareEstimator";
 import {
   StarIcon,
   ShieldCheckIcon,
-  ClockIcon,
-  MapPinIcon,
-  NavigationIcon,
   CarIcon,
   CheckIcon,
   ArrowRightIcon,
@@ -24,13 +21,13 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
+
           {/* Left Column: Typography, Value Proposition & Fare Estimator */}
           <div className="lg:col-span-6 flex flex-col justify-center">
             {/* Pill Tag */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold w-fit mb-6 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-blue-600 animate-ping" />
-              <span>Next-Gen Urban Taxi</span>
+              <span>India-wide cab booking</span>
               <span className="text-slate-300">|</span>
               <span className="text-slate-600 font-medium">Available 24/7</span>
             </div>
@@ -45,22 +42,19 @@ export default function Hero() {
 
             {/* Subheadline (Neutral Gray) */}
             <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed mb-8 max-w-xl">
-              Reliable point-to-point taxi booking with guaranteed flat fares, verified courteous drivers, and comfortable modern fleet options in over 50 cities.
+              Book comfortable city and outstation rides across India. Compare vehicle options and get a clear fare estimate in rupees before you book.
             </p>
 
             {/* Quick Benefits Checklist */}
             <div className="flex flex-wrap items-center gap-y-2 gap-x-5 text-xs sm:text-sm text-slate-700 mb-8">
               <span className="flex items-center gap-1.5 font-semibold">
                 <CheckIcon size={16} className="text-blue-600" />
-                Guaranteed Flat Rates
+                Fares shown in INR per km
               </span>
+
               <span className="flex items-center gap-1.5 font-semibold">
                 <CheckIcon size={16} className="text-blue-600" />
-                3-Minute Average Pickup
-              </span>
-              <span className="flex items-center gap-1.5 font-semibold">
-                <CheckIcon size={16} className="text-blue-600" />
-                No Surge Pricing
+                City and outstation rides
               </span>
             </div>
 
@@ -79,10 +73,10 @@ export default function Hero() {
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded-full bg-blue-600 animate-pulse" />
                     <span className="text-xs font-bold uppercase tracking-wider text-blue-700">
-                      Live Dispatch Radar
+                      Sample route
                     </span>
                   </div>
-                  <span className="text-xs text-slate-500 font-mono">GPS Signal: 100% Locked</span>
+                  <span className="text-xs text-slate-500">Delhi to Agra</span>
                 </div>
 
                 {/* Simulated Clean Route Map graphic */}
@@ -119,17 +113,17 @@ export default function Hero() {
                       </div>
                       <div>
                         <div className="text-xs font-bold text-[#0F172A] flex items-center gap-1.5">
-                          Marcus Vance
+                          Route estimate
                           <span className="inline-flex items-center text-[10px] text-amber-500 font-bold">
-                            <StarIcon size={10} className="fill-amber-400 mr-0.5" /> 4.95
+                            <StarIcon size={10} className="fill-amber-400 mr-0.5" />
                           </span>
                         </div>
-                        <p className="text-[10px] text-slate-500">Toyota Camry Hybrid • Plate #MV-882</p>
+                        <p className="text-[10px] text-slate-500">Indira Gandhi International Airport → Agra Taj Mahal</p>
                       </div>
                     </div>
                     <div className="text-right">
                       <span className="inline-block px-2.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-[10px] text-blue-700 font-bold">
-                        2 mins away
+                        216.1 km
                       </span>
                     </div>
                   </div>
@@ -138,16 +132,16 @@ export default function Hero() {
                 {/* Live Fleet Statistics Bar */}
                 <div className="grid grid-cols-3 gap-3 pt-2">
                   <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
-                    <div className="text-lg font-bold text-[#0F172A]">48</div>
-                    <div className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Cabs Nearby</div>
+                    <div className="text-lg font-bold text-[#0F172A]">₹13</div>
+                    <div className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Sedan / km</div>
                   </div>
                   <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
-                    <div className="text-lg font-bold text-blue-600">2.8 min</div>
-                    <div className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Median Arrival</div>
+                    <div className="text-lg font-bold text-blue-600">₹15</div>
+                    <div className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Ertiga / km</div>
                   </div>
                   <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
-                    <div className="text-lg font-bold text-emerald-600">99.4%</div>
-                    <div className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">On-Time Rate</div>
+                    <div className="text-lg font-bold text-emerald-600">₹18</div>
+                    <div className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">SUV / km</div>
                   </div>
                 </div>
 
@@ -155,7 +149,7 @@ export default function Hero() {
                 <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
                   <span className="flex items-center gap-1.5">
                     <ShieldCheckIcon size={15} className="text-blue-600" />
-                    Biometrically verified drivers & inspected vehicles
+                    Choose a vehicle to match your journey
                   </span>
                   <Link
                     href="#why-us"
@@ -175,38 +169,37 @@ export default function Hero() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 lg:gap-8">
             <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
               <div className="text-3xl sm:text-4xl font-black text-[#0F172A] tracking-tight flex items-baseline gap-1">
-                500K<span className="text-blue-600">+</span>
+                7
               </div>
               <p className="text-xs sm:text-sm text-slate-600 mt-1 font-medium">
-                Rides Completed Safely
+                Vehicle options
               </p>
             </div>
 
             <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
               <div className="text-3xl sm:text-4xl font-black text-[#0F172A] tracking-tight flex items-baseline gap-1">
-                50<span className="text-blue-600">+</span>
+                &#8377;13
               </div>
               <p className="text-xs sm:text-sm text-slate-600 mt-1 font-medium">
-                Cities Across North America & Europe
+                Sedan per kilometre
               </p>
             </div>
 
             <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
               <div className="text-3xl sm:text-4xl font-black text-[#0F172A] tracking-tight flex items-center gap-1.5">
-                4.8
-                <StarIcon size={22} className="text-amber-400 fill-amber-400" />
+                &#8377;15
               </div>
               <p className="text-xs sm:text-sm text-slate-600 mt-1 font-medium">
-                Average Rider Rating (120k+ reviews)
+                Ertiga per kilometre
               </p>
             </div>
 
             <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
               <div className="text-3xl sm:text-4xl font-black text-[#0F172A] tracking-tight flex items-baseline gap-1">
-                99.4<span className="text-blue-600">%</span>
+                &#8377;18
               </div>
               <p className="text-xs sm:text-sm text-slate-600 mt-1 font-medium">
-                On-Time Driver Arrival Rate
+                SUV per kilometre
               </p>
             </div>
           </div>

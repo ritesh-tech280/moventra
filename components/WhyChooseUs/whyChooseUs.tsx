@@ -20,40 +20,40 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    title: "Live GPS Tracking",
-    description: "Monitor your driver's real-time trajectory on precision telemetry maps and share ride tracking with family with one tap.",
+    title: "Know your route",
+    description: "Review the pickup, destination and estimated route distance before choosing a vehicle.",
     icon: NavigationIcon,
-    tag: "Sub-second GPS",
+    tag: "Route details",
   },
   {
-    title: "Verified Professional Drivers",
-    description: "Every driver completes mandatory in-person background checks, vehicle safety audits, and hospitality customer care training.",
+    title: "Driver information",
+    description: "Review the driver and vehicle details shared with your booking.",
     icon: ShieldCheckIcon,
-    tag: "Top 5% accepted",
+    tag: "Ride details",
   },
   {
-    title: "Transparent Upfront Pricing",
-    description: "Zero surprise surge rates or hidden destination surcharges. What you see on the fare estimator is precisely what you pay.",
+    title: "Clear fare estimate",
+    description: "See the distance and per-kilometre estimate for supported routes before you continue.",
     icon: DollarSignIcon,
-    tag: "Guaranteed rate",
+    tag: "INR per km",
   },
   {
-    title: "24/7 Dedicated Support",
-    description: "Human dispatchers and rider care specialists ready round-the-clock via instant in-app live chat and prioritized hotline.",
+    title: "Help when you need it",
+    description: "Find answers to common questions in the FAQ section or use the support details provided with your booking.",
     icon: HeadphonesIcon,
-    tag: "< 45s response",
+    tag: "Rider support",
   },
   {
-    title: "Multiple Payment Options",
-    description: "Seamlessly checkout with Apple Pay, Google Pay, corporate expense cards, major credit cards, or Moventra credits.",
+    title: "Payment options",
+    description: "Review the payment options available for your ride when you book.",
     icon: CreditCardIcon,
-    tag: "Cashless & flexible",
+    tag: "At booking",
   },
   {
-    title: "Ride Scheduling in Advance",
-    description: "Lock in critical airport departures or early dawn journeys up to 30 days ahead with our 100% guaranteed driver arrival pledge.",
+    title: "City and outstation rides",
+    description: "Choose a vehicle for local travel, airport transfers or a longer trip between destinations.",
     icon: CalendarIcon,
-    tag: "Up to 30 days",
+    tag: "Travel your way",
   },
 ];
 
@@ -69,10 +69,10 @@ export default function WhyChooseUs() {
             <span>The Moventra Standard</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0F172A] tracking-tight">
-            Why Discerning Riders Choose Us
+            Travel made simpler
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-            We redesigned urban transit from the ground up prioritizing punctuality, passenger peace of mind, and transparent pricing.
+            Simple route estimates, practical vehicle choices and clear booking details for travel across India.
           </p>
         </div>
 

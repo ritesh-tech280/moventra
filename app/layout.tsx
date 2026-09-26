@@ -21,32 +21,32 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Moventra — Premium Eco & Express Taxi Booking",
+  title: "Moventra — Cab Booking Across India",
   description:
-    "Your ride, on your schedule. Guaranteed upfront flat fares, verified 5-star courteous drivers, and 100% electrified or hybrid fleet options across 50+ cities.",
+    "Book city, airport and outstation rides across India. Compare vehicle options and view fare estimates in Indian rupees.",
   keywords: [
     "taxi booking",
     "cab service",
     "airport taxi",
-    "eco ride hail",
+    "India cab booking",
     "express taxi",
     "Moventra",
     "scheduled rides",
   ],
-  authors: [{ name: "Moventra Mobility Inc." }],
+  authors: [{ name: "Moventra" }],
   openGraph: {
-    title: "Moventra — Premium Eco & Express Taxi Booking",
+    title: "Moventra — Cab Booking Across India",
     description:
-      "Your ride, on your schedule. Flat guaranteed pricing, verified drivers, and prompt dispatch in 50+ metropolitan cities.",
+      "Book city, airport and outstation rides across India with clear fare estimates in Indian rupees.",
     type: "website",
-    locale: "en_US",
+    locale: "en_IN",
     siteName: "Moventra",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Moventra — Premium Eco & Express Taxi Booking",
+    title: "Moventra — Cab Booking Across India",
     description:
-      "Your ride, on your schedule. Flat guaranteed pricing, verified drivers, and prompt dispatch.",
+      "Book city, airport and outstation rides across India with fare estimates in Indian rupees.",
   },
 };
 
@@ -57,7 +57,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-white text-[#0F172A]">

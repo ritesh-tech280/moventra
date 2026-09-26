@@ -14,7 +14,6 @@ interface DestinationItem {
   name: string;
   region: string;
   knownFor: string;
-  monthlyRiders: number;
   image: string;
 }
 
@@ -23,56 +22,48 @@ const popularDestinations: DestinationItem[] = [
     name: "New Delhi",
     region: "National Capital Territory",
     knownFor: "India Gate, Red Fort, Connaught Place",
-    monthlyRiders: 5200,
     image: "https://loremflickr.com/600/450/newdelhi,indiagate,india",
   },
   {
     name: "Rishikesh",
     region: "Uttarakhand",
     knownFor: "Ganga Aarti, Yoga Capital, Laxman Jhula",
-    monthlyRiders: 3100,
     image: "https://loremflickr.com/600/450/rishikesh,ganges,india",
   },
   {
     name: "Haridwar",
     region: "Uttarakhand",
     knownFor: "Har Ki Pauri, Kumbh Mela, Ganga Ghats",
-    monthlyRiders: 3400,
     image: "https://loremflickr.com/600/450/haridwar,harkipauri,india",
   },
   {
     name: "Prayagraj",
     region: "Uttar Pradesh",
     knownFor: "Triveni Sangam, Kumbh Mela, Allahabad Fort",
-    monthlyRiders: 2600,
     image: "https://loremflickr.com/600/450/prayagraj,sangam,india",
   },
   {
     name: "Varanasi",
     region: "Uttar Pradesh",
     knownFor: "Ganga Ghats, Kashi Vishwanath Temple",
-    monthlyRiders: 2900,
     image: "https://loremflickr.com/600/450/varanasi,ghats,india",
   },
   {
     name: "Agra",
     region: "Uttar Pradesh",
     knownFor: "Taj Mahal, Agra Fort",
-    monthlyRiders: 4100,
     image: "https://loremflickr.com/600/450/tajmahal,agra,india",
   },
   {
     name: "Jaipur",
     region: "Rajasthan",
     knownFor: "Hawa Mahal, Amber Fort, Pink City",
-    monthlyRiders: 3300,
     image: "https://loremflickr.com/600/450/jaipur,hawamahal,india",
   },
   {
     name: "Amritsar",
     region: "Punjab",
     knownFor: "Golden Temple, Wagah Border",
-    monthlyRiders: 2400,
     image: "https://loremflickr.com/600/450/amritsar,goldentemple,india",
   },
 ];
@@ -113,7 +104,7 @@ export default function CityCoverage() {
             Popular Destinations
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-            From sacred ghats to iconic monuments, Moventra takes you to India&rsquo;s most loved pilgrimage and tourist destinations with prompt, reliable rides.
+            Explore popular city and outstation destinations across India.
           </p>
         </div>
 
@@ -147,10 +138,6 @@ export default function CityCoverage() {
                   loading="lazy"
                   className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur text-[10px] font-bold text-blue-700">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-                  Available Now
-                </div>
               </div>
 
               <div className="p-5 flex flex-col flex-1 justify-between">
@@ -159,9 +146,6 @@ export default function CityCoverage() {
                     <h3 className="text-lg font-bold text-[#0F172A] group-hover:text-blue-600 transition-colors">
                       {dest.name}
                     </h3>
-                    <span className="text-[10px] text-slate-400 font-mono font-medium whitespace-nowrap">
-                      {dest.monthlyRiders.toLocaleString()}+ riders
-                    </span>
                   </div>
                   <p className="text-xs text-slate-500 mb-3">{dest.region}</p>
 

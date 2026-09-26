@@ -14,37 +14,37 @@ const faqs: FAQItem[] = [
     category: "Booking",
     question: "How do I book a ride and how far in advance can I schedule?",
     answer:
-      "You can book instantly in under 30 seconds using our web portal or mobile app. For airport transfers, early morning meetings, or special occasions, you can schedule rides up to 30 days in advance with guaranteed driver assignment.",
+      "Enter your pickup and destination in the fare estimator, choose a vehicle, and review the route distance and estimated fare before continuing.",
   },
   {
     category: "Pricing & Payment",
     question: "Are Moventra prices fixed or do they surge during peak hours?",
     answer:
-      "Moventra operates on an upfront transparent pricing model. The fare you see on the estimator before requesting your ride is guaranteed and locked. We do not apply unexpected 3x surge multipliers in bad weather or rush hours.",
+      "The estimator uses the listed per-kilometre rate for the selected popular route. For other vehicles or routes, confirm the fare when arranging your ride.",
   },
   {
     category: "Cancellations",
     question: "What is your cancellation policy?",
     answer:
-      "You can cancel free of charge within 5 minutes of driver matching, or anytime before a scheduled advance ride is dispatched (up to 60 minutes before pickup). If cancelled after a driver has arrived at your curb, a modest flat dispatch fee of $5 is applied to compensate the driver's fuel and time.",
+      "Cancellation terms are shown during booking. If you need help with a booking, use the rider support contact provided with your ride details.",
   },
   {
     category: "Safety",
     question: "What safety measures and driver verification checks do you conduct?",
     answer:
-      "Passenger safety is paramount. All driver partners undergo extensive multi-jurisdictional background checks, DMV motor vehicle record audits, vehicle inspections, and identity verification. All rides are tracked live via telemetry with emergency 24/7 in-app dispatch assistance.",
+      "Driver and vehicle details are shared as part of the booking process. Check your ride information before starting your trip.",
   },
   {
     category: "Vehicles & Luggage",
     question: "How do I choose the right vehicle size for my group and luggage?",
     answer:
-      "Our fleet includes Eco Mini (up to 3 passengers, 2 standard bags), Comfort Sedan (up to 4 passengers, 3 bags), and Executive SUV (up to 6 passengers, 5 large suitcases). If you are carrying golf clubs, strollers, or excess baggage, we strongly recommend selecting the Executive SUV class.",
+      "Choose from Sedan, Ertiga, SUV, Crysta, Traveller, Urbania and Kia options. Select a vehicle based on the number of passengers and luggage for your trip.",
   },
   {
     category: "Driving with us",
     question: "What are the basic requirements to become a Moventra driver?",
     answer:
-      "Drivers must be at least 21 years old, possess a valid driver's license with at least 1 year of driving experience, operate an eligible 4-door vehicle (model year 2016 or newer in excellent cosmetic and mechanical shape), and clear our background check. Drivers keep up to 88% of passenger fares with daily cashout.",
+      "Use the driver registration form to share your contact and vehicle details. The onboarding process will guide you through the information required to apply.",
   },
 ];
 
@@ -68,7 +68,7 @@ export default function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-            Everything you need to know about booking, fare calculation, driver safety, and ride scheduling.
+            Quick answers about routes, vehicle options and booking.
           </p>
         </div>
 

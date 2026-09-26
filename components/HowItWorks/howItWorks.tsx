@@ -20,23 +20,23 @@ const steps: StepItem[] = [
   {
     step: "01",
     title: "Enter your destination",
-    description: "Input your pickup and drop-off points to view upfront guaranteed prices and estimated arrival times in real time.",
+    description: "Add your pickup and destination to see the route distance and available fare estimate.",
     icon: MapPinIcon,
-    tag: "30-sec booking",
+    tag: "Enter route",
   },
   {
     step: "02",
-    title: "Get matched with a nearby driver",
-    description: "Our intelligent dispatch system pairs you with the nearest verified 5-star driver in under 15 seconds.",
+    title: "Choose a vehicle",
+    description: "Compare the vehicle options and select one that suits your passengers and luggage.",
     icon: CarIcon,
-    tag: "Verified fleet",
+    tag: "Your choice",
   },
   {
     step: "03",
-    title: "Track your ride live & pay in-app",
-    description: "Follow your driver on the interactive GPS map. When your journey ends, payment settles automatically cashless.",
+    title: "Review and confirm",
+    description: "Check your trip details and fare with the booking information before you confirm.",
     icon: CreditCardIcon,
-    tag: "Zero hassle",
+    tag: "Trip details",
   },
 ];
 
@@ -54,7 +54,7 @@ export default function HowItWorks() {
             How Moventra Works
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-            From curb to destination in three simple taps. No phone calls, no cash exchange, and no guessing where your ride is.
+            Plan your ride in three simple steps.
           </p>
         </div>
 
